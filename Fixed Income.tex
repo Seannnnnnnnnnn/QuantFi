@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Swaps \& Fixed Income Securities}
+\author{Sean Conlon}
+
+\begin{document}
+\maketitle
+
+\newpage
+\section{Bonds}
+
+
+\subsubsection*{Interest Rates}
+For simple interest over $n$ years this 
+$$FV = PV(1+r\cdot t\cdot df)^n$$
+For compounding interest with fixed rate $r$ over $n$ years with $m$ compounding periods per year
+$$FV = PV\left(1+\frac{r}{m}\right)^{nm}$$
+For continuous compounding, this occurs when $m\rightarrow\infty$ which results in 
+$$FV = PVe^{rn}$$
+Continuous compounding is a typical assumption used in derivatives pricing. Given a compounding rate $r_m$ we can find it's \textit{equivalent continuous rate} $r_c$ by equating 
+\begin{align*}
+    & PVe^{r_cn} = PV\left(1+\frac{r_,}{m}\right)^{nm} \\
+    & \therefore r_c = m \ln\left(1+\frac{r_m}{m} \right)
+\end{align*}
+The $n$\textit{-year zero-coupon rate} or the \textit{n-year zero rate} is the rate of interest earned on an investment that starts today and ends in $n$ years.
+
+
+
+
+\end{document}

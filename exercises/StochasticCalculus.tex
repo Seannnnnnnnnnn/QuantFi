@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Stochastic Calculus Exercises}
+\author{Sean Conlon}
+
+\begin{document}
+\maketitle
+
+\subsection*{Introduction}
+The following document contains a collection of miscellaneous exercises pertaining to Stochastic Calculus. They include questions on Brownian Motion, Random Walks, Ito's Lemma, SDE's and the mathematical aspects of derivative pricing. They have been sourced from a variety of text books, course notes and online resources. \\
+
+\subsubsection*{Exercise 1.}
+\textit{Assuming standard Brownian Motion, show that $$\int_{0}^{t}B_s dB_s = \frac{1}{2}(B_t^2 - t)$$}
+\begin{proof}
+Using Ito's lemma with $f(x)=x^2$ we have
+\begin{align*}
+    dB_t^2 &= f'(B_t)dB_t + f''(B_t)dt \\
+    &= 2B_tdB_t + dt
+\end{align*}
+Integrating
+\begin{align*}
+    B_t^2 &= B_t^2(0) + \int_{0}^{t}ds + \int_{0}^{t}\frac{1}{2}B_s dB_s \\
+    &= t + \frac{1}{2}\int_{0}^{t}B_s dB_s
+\end{align*}
+Rearranging, we arrive at $$\int_{0}^{t}B_s dB_s = \frac{1}{2}(B_t^2 - t)$$
+\end{proof}
+
+\subsubsection*{Exercise 2.}
+\textit{Let $W_t$ be standard Brownian Motion, find an expression, expectation, variance of the following integral. Is it a martingale? 
+$$\int_{0}^{t}W_s ds$$}
+\textit{Solution.}
+
+
+\end{document}
