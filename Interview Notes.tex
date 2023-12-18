@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Interview Notes}
+\author{Sean Conlon}
+
+\begin{document}
+\maketitle
+
+\newpage
+\subsection*{Coupon Collecting Problem}
+Given $n$ coupons each with probability $1/n$ of being drawn, let $T$ be the number of the trials required to see all $n$ coupons. The coupon collecting problem is to find $E(T)$, which turns out to be 
+$$E(T) = n H_n = n \sum_{i=1}^{n}\frac{1}{i}$$
+\begin{proof}
+    Let $t_i$ be the random variable of finding the $i^{th}$ coupon after $i-1$ coupons have been collected. Clearly
+    $$t_i \sim \text{geometric}(p_i) \hspace{5mm} \text{where } p_i = \frac{n-(i-1)}{n} = \frac{n-i+1}{n}$$
+    So $E(t_i)$ is given by 
+    $$E(t_i) = \frac{1}{p_i} = \frac{n}{n-i+1}$$
+    Now, we note that $T = t_1 + \dots + t_n$ and thus, by the linearity of expectation: 
+    \begin{align*}
+        E(T) &= \sum_{i=1}^{n}E(t_i) \\
+        &= \left(\frac{n}{n} + \frac{n}{n-1} + \dots \frac{n}{1} \right) \\
+        &= n\left(1 + \frac{1}{2} + \dots + \frac{1}{n} \right)
+    \end{align*}
+\end{proof}
+For an example application, consider the following question: \textit{given a fair coin, find the expected number of flips to see both sides}. This is an instance of the coupon collecting problem with $n=2$, and thus the expected number of flips required is $2(1+1/2) = 6$
+
+
+\end{document}
